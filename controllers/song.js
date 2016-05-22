@@ -1,7 +1,17 @@
-var request = require('request')
+var request = require('request');
+var Song = require('../models/song');
 
 module.exports = {
+  index: index,
   show: show
+}
+
+function index(req, res, next) {
+  Song.find({}, function(err, songs) {
+    if (err) next(err);
+
+    res.json(songs);
+  });
 }
 
 function show(req, res) {

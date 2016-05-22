@@ -5,12 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var api = require('./routes/api');
-require('dotenv').load()
+var routes = require('./config/routes');
 
 var app = express();
+
+require('dotenv').load();
+
+require('./config/database');
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,9 +27,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+/*
 app.use('/users', users);
 app.use('/api', api);
-
+*/
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -59,7 +62,5 @@ app.use(function(err, req, res, next) {
   });
 });
 
-var mongoose = require('mongoose');
-mongoose.connect(process.env['MONGODB_URI'])
 
 module.exports = app;

@@ -7,5 +7,5 @@ var songSchema = new mongoose.Schema({
     lyrics: String
 })
 
-var Song = mongoose.model('Song', eventSchema);
+var Song = mongoose.model('Song', songSchema);
 module.exports = Song;
