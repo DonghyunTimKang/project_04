@@ -4,7 +4,8 @@ var router = express.Router();
 var songController = require('../controllers/song');
 
 router.route('/api/song')
-  .get(songController.index);
+  .get(songController.index)
+  .post(songController.create);
 
 
 router.route('/api/song/:title')

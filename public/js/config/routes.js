@@ -15,6 +15,12 @@
         templateUrl: "js/songs/songList.html",
         controller: 'SongListController',
         controllerAs: 'songListVm'
+      })
+      .state('songNew', {
+        url: '/songs/new',
+        templateUrl: 'js/songs/songNew.html',
+        controller: 'SongNewController',
+        controllerAs: 'songNewVm'
       });
 
     $urlRouterProvider.otherwise('/');

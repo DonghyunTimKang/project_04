@@ -1,0 +1,18 @@
+<div>
+  <h3>New Song</h3>
+  <form id='newSong' ng-submit="songNewVm.addSong()">
+    <div>
+      <label for="title">Title:</label>
+      <input type="text" name="title" ng-model="songNewVm.newSong.title">
+    </div>
+    <div>
+      <label for="authors">Authors:</label>
+      <input type="text" name="authors" ng-model="songNewVm.newSong.authors">
+    </div>
+    <div>
+      <label for="lyrics">Lyrics:</label>
+      <input type="text" name="lyrics" ng-model="songNewVm.newSong.lyrics">
+    </div>
+    <input type="submit" value="Add">
+  </form>
+</div>

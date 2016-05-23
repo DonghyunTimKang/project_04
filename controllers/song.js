@@ -3,7 +3,9 @@ var Song = require('../models/song');
 
 module.exports = {
   index: index,
-  show: show
+  show: show,
+  create: create
+
 }
 
 function index(req, res, next) {
@@ -26,4 +28,15 @@ function show(req, res) {
       res.json(searchedSong);
     }
   })
+}
+
+function create(req, res, next) {
+  var newSong = new Song(req.body);
+
+  newSong.save(function(err, savedSong) {
+    if (err) next(err);
+
+    res.json(savedSong);
+  });
+
 }
