@@ -1,14 +1,14 @@
 (function() {
   angular.module('coverMaestro')
-    .controller("SongListController", SongListController)
+    .controller("SongListController", SongListController);
 
 
     SongListController.$inject = ['SongResource'];
 
 
-    function SongListController(Songesource) {
+    function SongListController(SongResource) {
       var vm = this;
-      vm.shows = [];
+      vm.songs = [];
 
       SongResource.query().$promise.then(function(songs) {
         vm.songs = songs;

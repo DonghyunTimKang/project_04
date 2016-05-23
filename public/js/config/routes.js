@@ -15,7 +15,7 @@
         templateUrl: "js/songs/songList.html",
         controller: 'SongListController',
         controllerAs: 'songListVm'
-      })
+      });
 
     $urlRouterProvider.otherwise('/');
   }
