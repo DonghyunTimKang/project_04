@@ -4,6 +4,7 @@ var Song = require('../models/song');
 module.exports = {
   index: index,
   show: show,
+  showTwo: showTwo,
   create: create
 
 }
@@ -16,7 +17,17 @@ function index(req, res, next) {
   });
 }
 
-function show(req, res) {
+function show(req, res, next) {
+  var id = req.params.id;
+
+  Song.findById(id, function(err, song) {
+    if (err) next(err);
+
+    res.json(song);
+  });
+}
+
+function showTwo(req, res, next) {
 
   var baseUri = 'http://api.guitarparty.com/v2/songs/?'
   var key = '&api_key='+ process.env['GUITAR_PARTY_KEY']
@@ -27,8 +38,8 @@ function show(req, res) {
       var searchedSong = JSON.parse(body)
       res.json(searchedSong);
     }
-  })
-}
+   })
+  }
 
 function create(req, res, next) {
   var newSong = new Song(req.body);

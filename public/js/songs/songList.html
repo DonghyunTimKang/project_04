@@ -1,8 +1,14 @@
 <a ui-sref="songNew">Add a new song</a>
+<div ng-controller="SongListController as vm">
+  <label>Search</label>
+  <input type="search" class="form-control" ng-model="vm.search" placeholder="Artist or Song Name">
 
-<div ng-repeat="song in songListVm.songs">
-  <p>{{song.title}}</p>
-  <p>{{song.authors}}</p>
-  <p>{{song.lyrics}}</p>
+<div ng-repeat="song in songListVm.songs | filter:vm.search">
+  <p>Title: {{song.title}}</p>
+  <p>Artist: {{song.authors}}</p>
+  <p>Lyrics: {{song.lyrics}}</p>
+  <a ui-sref="songShow({id: song._id})">See This Song</a>
   <hr>
+</div>
+
 </div>

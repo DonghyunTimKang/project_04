@@ -16,11 +16,23 @@
         controller: 'SongListController',
         controllerAs: 'songListVm'
       })
+      .state('songListTwo', {
+        url: '/songs/listTwo',
+        templateUrl: "js/songs/songListTwo.html",
+        controller: 'SongListTwoController',
+        controllerAs: 'songListTwoVm'
+      })
       .state('songNew', {
         url: '/songs/new',
         templateUrl: 'js/songs/songNew.html',
         controller: 'SongNewController',
         controllerAs: 'songNewVm'
+      })
+      .state('songShow', {
+        url: '/songs/show/:id',
+        templateUrl: 'js/songs/songShow.html',
+        controller: 'SongShowController',
+        controllerAs: 'songShowVm'
       });
 
     $urlRouterProvider.otherwise('/');
