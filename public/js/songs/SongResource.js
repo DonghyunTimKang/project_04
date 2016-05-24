@@ -6,8 +6,8 @@
 
   function SongResource($resource) {
     return $resource(
-      "/api/song",
-       {
+        "/api/song/:id",
+      {id: '@id'}, {
         'update': { method: 'PUT'}
       }
     );

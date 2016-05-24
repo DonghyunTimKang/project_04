@@ -1,10 +1,14 @@
 (function() {
   angular.module('coverMaestro')
     .controller("SongListController", SongListController)
-    .controller("SongNewController", SongNewController);
+    .controller("SongListTwoController", SongListTwoController)
+    .controller("SongNewController", SongNewController)
+    .controller("SongShowController", SongShowController);
 
 
     SongListController.$inject = ['SongResource'];
+    SongListTwoController.$inject = ['SongResourceTwo'];
+
 
 
     function SongListController(SongResource) {
@@ -16,6 +20,16 @@
       });
     }
 
+    function SongListTwoController(SongResourceTwo) {
+      var vm = this;
+      vm.songsTwo = [];
+
+      SongResourceTwo.query().$promise.then(function(songsTwo) {
+        vm.songsTwo = songsTwo;
+      });
+    }
+
+
     function SongNewController(SongResource, $state) {
       var vm = this;
       vm.newSong = {};
@@ -26,5 +40,14 @@
           vm.newSong = {};
         });
       }
+    }
+
+     function SongShowController(SongResource, $stateParams) {
+      var vm = this;
+      vm.song = {};
+
+      SongResource.get({id: $stateParams.id}).$promise.then(function(jsonSong) {
+          vm.song = jsonSong;
+      });
     }
 })();
