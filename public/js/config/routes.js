@@ -40,6 +40,12 @@
         controller:   "SignInController",
         controllerAs: "vm"
       });*/
+      .state('profileShow', {
+        url: '/profile/show/:id',
+        templateUrl: 'js/profile/profileShow.html',
+        controller: 'ProfileShowController',
+        controllerAs: 'ProfileShowVm'
+      });
 
     $urlRouterProvider.otherwise('/');
   }

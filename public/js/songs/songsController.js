@@ -17,6 +17,7 @@
 
       SongResource.query().$promise.then(function(songs) {
         vm.songs = songs;
+        console.log("Hella"+songs)
       });
     }
 
@@ -60,6 +61,9 @@
 
       SongResource.get({id: $stateParams.id}).$promise.then(function(jsonSong) {
           vm.song = jsonSong;
+          console.log("song ID"+$stateParams.id)
       });
     }
+
+
 })();

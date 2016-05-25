@@ -14,7 +14,7 @@
   <header ng-controller="NavbarController as vm">
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-          <a ui-sref="welcome" class="navbar-brand">Home</a>
+          <a ui-sref="home" class="navbar-brand">Home</a>
           <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
           <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
         </div>
@@ -32,6 +32,8 @@
     <script src="js/songs/songsController.js" charset="utf-8"></script>
     <script src="js/songs/SongResource.js" charset="utf-8"></script>
     <script src="js/songs/SongResourceTwo.js" charset="utf-8"></script>
+    <script src="js/profile/profileController.js" charset="utf-8"></script>
+    <script src="js/profile/profileResource.js" charset="utf-8"></script>
     <script src="js/auth/app.routes.js" charset="utf-8"></script>
     <script src="js/auth/auth.service.js" charset="utf-8"></script>
     <script src="js/auth/signin.controller.js" charset="utf-8"></script>

@@ -4,7 +4,10 @@
   <input type="submit" id="submit" value="Identify" />
 </form>
 <div ng-repeat="object in songListTwoVm.apiSongs">
-  <p> {{object.body_stripped}}</p>
+  <p> {{object.title}}</p>
+  <p> {{object.id}}</p>
+  <a ui-sref="songShow({id: song._id})">See This Song</a>
+<hr>
 </div>
   <hr>
 </div>

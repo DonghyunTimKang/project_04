@@ -5,8 +5,6 @@
 
 <div ng-repeat="song in songListVm.songs | filter:vm.search">
   <p>Title: {{song.title}}</p>
-  <p>Artist: {{song.authors}}</p>
-  <p>Lyrics: {{song.lyrics}}</p>
   <a ui-sref="songShow({id: song._id})">See This Song</a>
   <hr>
 </div>
