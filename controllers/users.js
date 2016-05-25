@@ -2,7 +2,8 @@ var User = require("../models/user");
 
 module.exports = {
   create: create,
-  me:     me
+  me:     me,
+  show: show
 };
 
 function create(req, res, next) {
@@ -43,4 +44,15 @@ function me(req, res, next) {
     .catch(function(err) {
       next(err);
     });
+
+};
+
+function show(req, res, next) {
+  var id = req.params.id;
+
+  User.findById(id, function(err, user) {
+    if (err) next(err);
+
+    res.json(user);
+  });
 };

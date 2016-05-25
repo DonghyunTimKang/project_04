@@ -3,8 +3,8 @@
    <input type="text" ng-model="song" name="text" />
   <input type="submit" id="submit" value="Identify" />
 </form>
-<div>
-  <p> {{songListTwoVm.songsThirdParty.objects[1].body_stripped}}
+<div ng-repeat="object in songListTwoVm.apiSongs">
+  <p> {{object.body_stripped}}</p>
 </div>
   <hr>
 </div>

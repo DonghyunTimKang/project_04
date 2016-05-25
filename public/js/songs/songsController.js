@@ -22,6 +22,7 @@
 
     function SongListTwoController(SongResourceTwo, $http) {
       var vm = this;
+      vm.apiSongs = [];
       /*vm.songsTwo = [];
 
       SongResourceTwo.query().$promise.then(function(songsTwo) {
@@ -32,9 +33,9 @@
       vm.songsTwo=function(song){
         console.log(song+"HERRO");
         $http.put('http://localhost:3000/api/songThirdparty', {"query":song}).success(function(data){
-          vm.songsThirdParty=data;
+          vm.apiSongs=data.objects;
           console.log('Third Party Call');
-          console.log(typeof(data))
+          console.log(vm.apiSongs);
         })
       }
 

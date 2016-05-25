@@ -1,15 +1,15 @@
 var express = require('express');
 var router = express.Router();
 var rp = require('request-promise');
-
 var songController = require('../controllers/song');
 var usersController = require('../controllers/users');
 var token = require('../config/token_auth');
 
+//Show all songs and create songs
 router.route('/api/song')
   .get(songController.index)
   .post(songController.create)
-
+//Show one song
 router.route('/api/song/:id')
   .get(songController.show);
 
@@ -37,6 +37,9 @@ router.route('/api/users')
 
 router.route('/api/users/me')
   .get(token.authenticate, usersController.me);
+//Show specific user
+router.route('/api/user/:id')
+  .get(usersController.show);
 
 router.route('/api/token')
   .post(token.create);
