@@ -19,8 +19,8 @@
     };
     vm.submitSignUp = submitSignUp;
     vm.logIn = {
-      email:    "pj@ga.co",
-      password: "12345"
+      email:    "donghyuntimkang@gmail.com",
+      password: "password"
     };
     vm.submitLogIn = submitLogIn;
     vm.conflict = false;
