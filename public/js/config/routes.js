@@ -33,7 +33,13 @@
         templateUrl: 'js/songs/songShow.html',
         controller: 'SongShowController',
         controllerAs: 'songShowVm'
-      });
+      })
+    /*  .state("signin", {
+        url:          "/signin",
+        templateUrl:  "js/signin.html",
+        controller:   "SignInController",
+        controllerAs: "vm"
+      });*/
 
     $urlRouterProvider.otherwise('/');
   }

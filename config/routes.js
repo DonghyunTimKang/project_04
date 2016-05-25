@@ -10,10 +10,10 @@ router.route('/api/song')
   .get(songController.index)
   .post(songController.create)
 
+router.route('/api/song/:id')
+  .get(songController.show);
 
-/*router.route('/api/song/:title')
-  .get(songController.showTwo);*/
-
+//Third party call
 router.put('/api/songThirdparty', function(req, res){
 rp({
   method: "GET",
@@ -30,15 +30,18 @@ rp({
 .catch(err => console.log(err))
 })
 
-router.route('/api/song/:id')
-  .get(songController.show);
+
+/* AUTH ROUTES*/
+router.route('/api/users')
+  .post(usersController.create);
+
+router.route('/api/users/me')
+  .get(token.authenticate, usersController.me);
+
+router.route('/api/token')
+  .post(token.create);
 
 
-
-router.post('/users',    usersController.create);
-router.get( '/users/me', token.authenticate, usersController.me);
-
-router.post('/token',    token.create);
 
 /* GET home page. */
 router.get('*', function(req, res, next) {
