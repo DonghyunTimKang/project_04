@@ -13,12 +13,22 @@
     var service = {
       logIn:      logIn,
       isLoggedIn: isLoggedIn,
-      logOut:     logOut
+      logOut:     logOut,
+      loggedInUser: loggedInUser
     };
     return service;
 
     function isLoggedIn() {
       return (token.retrieve() != null);
+    }
+
+    function loggedInUser(){
+      if(isLoggedIn()){
+        return token.decode();
+      }
+      else {
+        return null;
+      }
     }
 
     function logIn(data) {

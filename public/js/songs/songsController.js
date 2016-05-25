@@ -7,7 +7,7 @@
 
 
     SongListController.$inject = ['SongResource'];
-    SongListTwoController.$inject = ['SongResourceTwo', '$https'];
+    SongListTwoController.$inject = ['SongResourceTwo', '$http'];
 
 
 
@@ -21,7 +21,7 @@
       });
     }
 
-    function SongListTwoController(SongResourceTwo, $https) {
+    function SongListTwoController(SongResourceTwo, $http) {
       var vm = this;
       vm.apiSongs = [];
       /*vm.songsTwo = [];
@@ -33,7 +33,7 @@
       vm.songsThirdParty;
       vm.songsTwo=function(song){
         console.log(song+"HERRO");
-        $https.put('http://localhost:3000/api/songThirdparty', {"query":song}).success(function(data){
+        $http.put('http://localhost:3000/api/songThirdparty', {"query":song}).success(function(data){
           vm.apiSongs=data.objects;
           console.log('Third Party Call');
           console.log(vm.apiSongs);
