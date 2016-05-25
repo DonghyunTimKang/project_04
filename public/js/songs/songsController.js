@@ -7,7 +7,7 @@
 
 
     SongListController.$inject = ['SongResource'];
-    SongListTwoController.$inject = ['SongResourceTwo'];
+    SongListTwoController.$inject = ['SongResourceTwo', '$http'];
 
 
 
@@ -20,13 +20,24 @@
       });
     }
 
-    function SongListTwoController(SongResourceTwo) {
+    function SongListTwoController(SongResourceTwo, $http) {
       var vm = this;
-      vm.songsTwo = [];
+      /*vm.songsTwo = [];
 
       SongResourceTwo.query().$promise.then(function(songsTwo) {
         vm.songsTwo = songsTwo;
-      });
+        console.log(vm.songsTwo);
+      });*/
+      vm.songsThirdParty;
+      vm.songsTwo=function(song){
+        console.log(song+"HERRO");
+        $http.put('http://localhost:3000/api/songThirdparty', {"query":song}).success(function(data){
+          vm.songsThirdParty=data;
+          console.log('Third Party Call');
+          console.log(typeof(data))
+        })
+      }
+
     }
 
 

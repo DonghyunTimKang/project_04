@@ -5,9 +5,9 @@
   SongResourceTwo.$inject = ['$resource'];
 
   function SongResourceTwo($resource) {
-    return $resource(
-        "/api/song/let it be",
-     {
+     return $resource(
+        "/api/song/:id",
+      {id: '@id'}, {
         'update': { method: 'PUT'}
       }
     );

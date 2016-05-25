@@ -1,4 +1,10 @@
-<div ng-repeat="song in songListTwoVm.songsTwo">
-  <p>lyrics: {{song[0].body_stripped}}</p>
+<div>
+<form ng-submit="songListTwoVm.songsTwo(song)">
+   <input type="text" ng-model="song" name="text" />
+  <input type="submit" id="submit" value="Identify" />
+</form>
+<div>
+  <p> {{songListTwoVm.songsThirdParty.objects[1].body_stripped}}
+</div>
   <hr>
 </div>

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>CoverMaestro</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/jwt-decode.2.0.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.js"></script>
@@ -13,10 +14,24 @@
   <h1>Cover Maestro</h1>
     <div ui-view></div>
     <script src="js/app.js" charset="utf-8"></script>
+    <script src="js/config/app.debug.js" charset="utf-8"></script>
+    <script src="js/config/app.httpInterceptors.js" charset="utf-8"></script>
+    <script src="js/config/jsonHeaders.service.js" charset="utf-8"></script>
+    <script src="js/config/tokenSigning.service.js" charset="utf-8"></script>
+    <script src="js/config/authErrorRedirect.service.js" charset="utf-8"></script>
     <script src="js/config/routes.js" charset="utf-8"></script>
     <script src="js/songs/songsController.js" charset="utf-8"></script>
     <script src="js/songs/SongResource.js" charset="utf-8"></script>
     <script src="js/songs/SongResourceTwo.js" charset="utf-8"></script>
+    <script src="js/auth/app.routes.js" charset="utf-8"></script>
+    <!--<script src="js/auth/app.module.js" charset="utf-8"></script>-->
+    <script src="js/auth/auth.service.js" charset="utf-8"></script>
+    <script src="js/auth/signin.controller.js" charset="utf-8"></script>
+    <script src="js/auth/navbar.controller.js" charset="utf-8"></script>
+    <script src="js/auth/token.service.js" charset="utf-8"></script>
+    <script src="js/auth/user.service.js" charset="utf-8"></script>
+
+
 
   </body>
 </html>
