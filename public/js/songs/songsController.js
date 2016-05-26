@@ -17,10 +17,10 @@
     function SongListController(SongResource, authService, $http) {
       var vm = this;
       vm.songs = [];
-      vm.addSongtoUser = addSongtoUser;
+
       vm.destroy = destroy;
       vm.authService =authService;
-
+      vm.addSongtoUser = addSongtoUser;
       SongResource.query().$promise.then(function(songs) {
         vm.songs = songs;
         console.log("Hella"+songs)
@@ -36,9 +36,9 @@
       }
 
       function addSongtoUser(song){
-        var id = song._id;
+
         $http
-          .put(`/api/users/me/songs/${id}`, song)
+          .put(`/api/users/me/songs/${song._id}`, song)
           .then(function(res){
             console.log(res.data);
           },

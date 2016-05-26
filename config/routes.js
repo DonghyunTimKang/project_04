@@ -44,7 +44,7 @@ router.route('/api/users/me/songs/:songId')
 
 //Show specific user
 router.route('/api/user/:id')
-  .get(usersController.show);
+  .get(token.authenticate, usersController.show);
 
 router.route('/api/user/:id')
   .put(usersController.update);

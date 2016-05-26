@@ -6,7 +6,7 @@
 
   function ProfileResource($resource) {
     return $resource(
-        "/api/user/me",
+        "/api/user/:id",
       {id: '@id'}, {
         'update': { method: 'PUT'}
       }

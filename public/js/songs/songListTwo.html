@@ -5,7 +5,7 @@
 </form>
 <div ng-repeat="object in songListTwoVm.apiSongs">
   <p> {{object.title}}</p>
-  <p> {{object.id}}</p>
+  <p> {{object.body_stripped}}</p>
   <a ui-sref="songShow({id: song._id})">See This Song</a>
 <hr>
 </div>

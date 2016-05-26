@@ -53,11 +53,16 @@ function me(req, res, next) {
 function show(req, res, next) {
   var id = req.params.id;
 
-  User.findById(id, function(err, user) {
-    if (err) next(err);
-
-    res.json(user);
-  });
+  User
+    .findOne({_id: id})
+    .populate('songs')
+    .exec()
+    .then(function(user) {
+      res.json(user);
+    })
+    .catch(function(err) {
+      next(err);
+    });
 };
 
 function update(req, res, next){

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>CoverMaestro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="js/jwt-decode.2.0.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
@@ -12,19 +13,39 @@
   </head>
   <body>
   <header ng-controller="NavbarController as vm">
-      <nav class="navbar navbar-default navbar-fixed-top">
+     <!-- <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
           <a ui-sref="home" class="navbar-brand">Home</a>
+          <a ng-show="vm.authService.isLoggedIn()" ui-sref="profileShow">View Profile</a>
           <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
           <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
-          <a ng-show="vm.authService.isLoggedIn()" ui-sref="profileShow">View Profile</a>
-          <a ui-sref="signin">Sign In</a>
-
-
         </div>
-      </nav>
+      </nav>-->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a ui-sref="home" class="navbar-brand">Cover Maestro</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <a ng-show="vm.authService.isLoggedIn()" ui-sref="profileShow({id:vm.authService.loggedInUser()._id})">View Profile</a>
+
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <button ng-show="vm.authService.isLoggedIn()" ui-sref="profileShow({id:vm.authService.loggedInUser()._id})">View Profile</button>
+        <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
+        <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
+      </ul>
+    </div>
+  </div>
+</nav>
+
     </header>
-  <h1>Cover Maestro</h1>
     <div ui-view></div>
     <script src="js/app.js" charset="utf-8"></script>
     <script src="js/config/app.debug.js" charset="utf-8"></script>

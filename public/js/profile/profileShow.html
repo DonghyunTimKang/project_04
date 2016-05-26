@@ -2,7 +2,7 @@ Profile Page
 <p>{{ProfileShowVm.user.name}}</p>
 <p>{{ProfileShowVm.user.email}}</p>
 
-<div ng-repeat="song in ProfileShowVm.user.songObjects track by $index">
+<div ng-repeat="song in ProfileShowVm.user.songs track by $index">
 {{song.title}}
 {{song.lyrics}}
 <a ui-sref="songShow({id: song._id})">See This Song</a>

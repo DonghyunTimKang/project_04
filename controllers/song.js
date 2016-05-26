@@ -66,7 +66,7 @@ function update(req, res, next) {
     song.lyrics = req.body.lyrics;
     song.instrument = req.body.instrument;
 
-    show.save(function(err, updatedSong) {
+    song.save(function(err, updatedSong) {
       if (err) next(err);
 
       res.json(updatedSong);
