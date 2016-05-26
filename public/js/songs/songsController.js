@@ -80,6 +80,7 @@
       function addSong() {
         SongResource.save(vm.newSong).$promise.then(function(jsonSong) {
           vm.newSong = {};
+          $state.go('songShow', {id: jsonSong._id});
         });
       }
     }

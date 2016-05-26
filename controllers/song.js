@@ -62,7 +62,9 @@ function update(req, res, next) {
 
     song.title = req.body.title;
     song.authors = req.body.authors;
+    song.chordsURL = req.body.chordsURL;
     song.lyrics = req.body.lyrics;
+    song.instrument = req.body.instrument;
 
     show.save(function(err, updatedSong) {
       if (err) next(err);

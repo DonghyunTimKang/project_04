@@ -8,6 +8,7 @@
       var vm = this;
       vm.user = {};
       vm.songs = [];
+      vm.authService =authService;
 
       if(authService.isLoggedIn()){
         vm.user=authService.loggedInUser();

@@ -17,6 +17,10 @@
           <a ui-sref="home" class="navbar-brand">Home</a>
           <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
           <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
+          <a ng-show="vm.authService.isLoggedIn()" ui-sref="profileShow">View Profile</a>
+          <a ui-sref="signin">Sign In</a>
+
+
         </div>
       </nav>
     </header>

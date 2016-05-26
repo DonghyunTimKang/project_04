@@ -5,6 +5,7 @@ Profile Page
 <div ng-repeat="song in ProfileShowVm.user.songObjects track by $index">
 {{song.title}}
 {{song.lyrics}}
+<a ui-sref="songShow({id: song._id})">See This Song</a>
   <hr>
 </div>
 
