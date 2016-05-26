@@ -11,7 +11,9 @@ router.route('/api/song')
   .post(songController.create)
 //Show one song
 router.route('/api/song/:id')
-  .get(songController.show);
+  .get(songController.show)
+  .put(token.authenticate, songController.update)
+  .delete(songController.destroy);
 
 //Third party call
 router.put('/api/songThirdparty', function(req, res){

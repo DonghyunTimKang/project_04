@@ -5,7 +5,9 @@ module.exports = {
   index: index,
   show: show,
   showTwo: showTwo,
-  create: create
+  create: create,
+  update: update,
+  destroy: destroy
 
 }
 
@@ -50,6 +52,34 @@ function create(req, res, next) {
     res.json(savedSong);
   });
 
+}
+
+function update(req, res, next) {
+  var id = req.params.id;
+
+  Song.findById(id, function(err, song) {
+    if (err) next(err);
+
+    song.title = req.body.title;
+    song.authors = req.body.authors;
+    song.lyrics = req.body.lyrics;
+
+    show.save(function(err, updatedSong) {
+      if (err) next(err);
+
+      res.json(updatedSong);
+    });
+
+  });
+}
+
+function destroy(req, res, next) {
+  var id = req.params.id;
+  Song.remove({_id:id}, function(err) {
+    if (err) next(err);
+
+    res.json({message: 'Show successfully deleted'});
+  });
 }
 
 

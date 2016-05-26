@@ -3,23 +3,37 @@
     .controller("SongListController", SongListController)
     .controller("SongListTwoController", SongListTwoController)
     .controller("SongNewController", SongNewController)
-    .controller("SongShowController", SongShowController);
+    .controller("SongShowController", SongShowController)
+    .controller("SongEditController", SongEditController);
 
 
-    SongListController.$inject = ['SongResource', '$http'];
+    SongListController.$inject = ['SongResource', 'authService', '$http'];
     SongListTwoController.$inject = ['SongResourceTwo', '$http'];
+    SongEditController.$inject = ['SongResource', '$stateParams', '$state'];
+    SongShowController.$inject = ['SongResource', 'authService', '$stateParams'];
 
 
 
-    function SongListController(SongResource, $http) {
+    function SongListController(SongResource, authService, $http) {
       var vm = this;
       vm.songs = [];
       vm.addSongtoUser = addSongtoUser;
+      vm.destroy = destroy;
+      vm.authService =authService;
 
       SongResource.query().$promise.then(function(songs) {
         vm.songs = songs;
         console.log("Hella"+songs)
       });
+
+      function destroy(songToDelete) {
+        SongResource.delete({id: songToDelete._id}).$promise.then(function (response) {
+          console.log(response.message);
+          vm.songs = vm.songs.filter(function(song) {
+            return song != songToDelete;
+          });
+        });
+      }
 
       function addSongtoUser(song){
         var id = song._id;
@@ -70,14 +84,32 @@
       }
     }
 
-     function SongShowController(SongResource, $stateParams) {
+     function SongShowController(SongResource, authService, $stateParams) {
       var vm = this;
       vm.song = {};
+      vm.authService =authService;
 
       SongResource.get({id: $stateParams.id}).$promise.then(function(jsonSong) {
           vm.song = jsonSong;
           console.log("song ID"+$stateParams.id)
       });
+    }
+
+    function SongEditController(SongResource, $stateParams, $state) {
+      var vm = this;
+      vm.song = {};
+      vm.editSong = editSong;
+
+      SongResource.get({id: $stateParams.id}).$promise.then(function(jsonSong) {
+          vm.song = jsonSong;
+      });
+
+      function editSong() {
+        SongResource.update({id: vm.song._id}, vm.song).$promise.then(function(updatedSong) {
+          vm.song = updatedSong;
+          //$state.go('showShow', {id: updatedShow._id});
+        });
+      }
     }
 
 

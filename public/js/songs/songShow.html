@@ -3,3 +3,5 @@ Show Song Page
 <p>{{songShowVm.song.authors}}</p>
 <p>{{songShowVm.song.lyrics}}</p>
 <a ui-sref="songList">Back</a>
+<a ng-show="songShowVm.authService.isLoggedIn()" ui-sref="songEdit({id:songShowVm.song._id})">Edit Song</a>
+
