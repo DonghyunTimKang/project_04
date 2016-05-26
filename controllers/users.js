@@ -64,7 +64,7 @@ function update(req, res, next){
   User.findOne({email: req.decoded.email}).exec(function(err, user){
     console.log("user "+req.user)
     user.songs.push(req.params.songId)
-    console.log(req.params.songId)
+    console.log("song param "+req.params.songId)
 
     user.save(function(err, savedUser){
       if(err) console.log(err)

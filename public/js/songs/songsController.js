@@ -22,7 +22,7 @@
       });
 
       function addSongtoUser(song){
-        var id = song._id
+        var id = song._id;
         $http
           .put(`/api/users/me/songs/${id}`, song)
           .then(function(res){
