@@ -6,20 +6,35 @@
     .controller("SongShowController", SongShowController);
 
 
-    SongListController.$inject = ['SongResource'];
+    SongListController.$inject = ['SongResource', '$http'];
     SongListTwoController.$inject = ['SongResourceTwo', '$http'];
 
 
 
-    function SongListController(SongResource) {
+    function SongListController(SongResource, $http) {
       var vm = this;
       vm.songs = [];
+      vm.addSongtoUser = addSongtoUser;
 
       SongResource.query().$promise.then(function(songs) {
         vm.songs = songs;
         console.log("Hella"+songs)
       });
+
+      function addSongtoUser(song){
+        var id = song._id
+        $http
+          .put(`/api/users/me/songs/${id}`, song)
+          .then(function(res){
+            console.log(res.data);
+          },
+          function(err){
+            console.log(err)
+          })
+            }
     }
+
+
 
     function SongListTwoController(SongResourceTwo, $http) {
       var vm = this;

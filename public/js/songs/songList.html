@@ -6,6 +6,7 @@
 <div ng-repeat="song in songListVm.songs | filter:vm.search">
   <p>Title: {{song.title}}</p>
   <a ui-sref="songShow({id: song._id})">See This Song</a>
+  <button ng-click="songListVm.addSongtoUser(song)" type="button" class="btn"><i class="glyphicon glyphicon-plus"></i></button>
   <hr>
 </div>
 

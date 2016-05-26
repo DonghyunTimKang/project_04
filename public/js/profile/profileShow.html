@@ -1,4 +1,10 @@
 Profile Page
 <p>{{ProfileShowVm.user.name}}</p>
+<p>{{ProfileShowVm.user.email}}</p>
+<div ng-repeat="song in ProfileShowVm.user">
+<p>{{song.songs}}</p>
+<hr>
+</div>
+
 
 <a ui-sref="songList">Back</a>

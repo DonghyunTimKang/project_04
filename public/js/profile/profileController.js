@@ -6,6 +6,7 @@
 
      function ProfileShowController(ProfileResource, authService) {
       var vm = this;
+      vm.user = {}
 
       if(authService.isLoggedIn()){
         vm.user=authService.loggedInUser();

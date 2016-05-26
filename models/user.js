@@ -3,7 +3,9 @@ var mongoose = require('mongoose'),
 
 var userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
-  name:  { type: String, required: true }
+  name:  { type: String, required: true },
+  songs: [{type: mongoose.Schema.Types.ObjectId, ref: 'Song'}]
+
 });
 
 // add bcrypt hashing to model (works on a password field)!

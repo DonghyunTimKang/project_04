@@ -34,12 +34,18 @@ rp({
 /* AUTH ROUTES*/
 router.route('/api/users')
   .post(usersController.create);
-
 router.route('/api/users/me')
   .get(token.authenticate, usersController.me);
+router.route('/api/users/me/songs/:songId')
+  .put(token.authenticate, usersController.update);
+
+
 //Show specific user
 router.route('/api/user/:id')
   .get(usersController.show);
+
+router.route('/api/user/:id')
+  .put(usersController.update);
 
 router.route('/api/token')
   .post(token.create);

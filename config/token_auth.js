@@ -14,8 +14,8 @@ module.exports = {
 // changes to what your token looks like here.
 function extractPayload(user, options) {
  return {
-  _id: user._id,name: user.name,
-  use: ['shows']
+  _id: user._id,name: user.name, email: user.email, songs: user.songs,
+  use: 'public_api'
  };
 }
 

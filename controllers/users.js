@@ -3,7 +3,8 @@ var User = require("../models/user");
 module.exports = {
   create: create,
   me:     me,
-  show: show
+  show: show,
+  update: update
 };
 
 function create(req, res, next) {
@@ -33,7 +34,9 @@ function create(req, res, next) {
 
 function me(req, res, next) {
   User
-    .findOne({email: req.decoded.email}).exec()
+    .findOne({email: req.decoded.email})
+    .populate('songs')
+    .exec()
     .then(function(user) {
       res.json({
         success: true,
@@ -56,3 +59,40 @@ function show(req, res, next) {
     res.json(user);
   });
 };
+
+function update(req, res, next){
+  User.findOne({email: req.decoded.email}).exec(function(err, user){
+    console.log("user "+req.user)
+    user.songs.push(req.params.songId)
+    console.log(req.params.songId)
+
+    user.save(function(err, savedUser){
+      if(err) console.log(err)
+        res.json(savedUser)
+    })
+  })
+}
+
+/*function update(req, res, next){
+  var id = req.params.id;
+
+  User.findById(id, function(err, user) {
+
+    user.song.push(req.params.song._id)
+    console.log(req.params.songId)
+
+    user.save(function(err, savedUser){
+      if(err) console.log(err)
+        res.json(savedUser)
+    })
+  })
+}
+
+*/
+
+
+
+
+
+
+
