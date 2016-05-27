@@ -36,7 +36,7 @@ color: white;
   background: white;
 }
 #songShow{
-  max-width: 50%;
+  max-width: 65%;
   margin: auto;
 background: white;
 }
@@ -46,6 +46,15 @@ background: white;
 }
 #songList{
 background: white;
+text-align: center;
+}
+#searchSong{
+  text-align: center;
+  width: 300px;
+
+}
+#searchBar{
+  text-align: center;
 }
 #profileShow{
 background: white;
@@ -54,8 +63,16 @@ background: white;
 background: white;
 }
 #songNew{
+  text-align: center;
   background: white;
 }
+#lyricText{
+  height: 300px;
+  width: 300px;
+}
+#songNewAlign{
+text-align: center;
+}
 #home{
-background: url('http://ladedaentertainment.com/images/backgrounds/concert-crowd.jpg');
+background-image: url('http://ladedaentertainment.com/images/backgrounds/concert-crowd.jpg');
 }
