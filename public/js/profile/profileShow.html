@@ -1,8 +1,10 @@
-<h3>Welcome {{ProfileShowVm.user.name}}</h3>
-<h4>Saved Songs</h4>
-<div ng-repeat="song in ProfileShowVm.user.songs track by $index">
-  <a ui-sref="songShow({id: song._id})">{{song.title}} by {{song.authors}}</a>
-  <hr>
+<div id="profileShow">
+  <h3>Welcome {{ProfileShowVm.user.name}}</h3>
+  <h4>Saved Songs</h4>
+  <div ng-repeat="song in ProfileShowVm.user.songs track by $index">
+    <a ui-sref="songShow({id: song._id})">{{song.title}} by {{song.authors}}</a>
+    <hr>
+  </div>
 </div>
 
 

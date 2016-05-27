@@ -12,10 +12,10 @@
 
     // BINDINGS
     vm.signUp = {
-      email:    "pj@ga.co",
-      name:     "Philip Hughes",
-      password: "12345",
-      passwordConfirmation: "12345"
+      email:    "",
+      name:     "",
+      password: "",
+      passwordConfirmation: ""
     };
     vm.submitSignUp = submitSignUp;
     vm.logIn = {

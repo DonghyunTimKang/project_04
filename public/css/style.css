@@ -1,25 +1,55 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: ;
+}
+
+#indexBack{
+  background: black;
 }
 
 a {
   color: #00B7FF;
 }
-
+#welcomeTitle{
+color: white;
+}
 #welcomeLesson {
   max-width: 50%;
   margin: auto;
-
+  background: white;
 }
 
 #welcomeBody {
   margin: auto;
   text-align: center;
+  background: white;
 }
 
 #finalThoughts{
   max-width: 50%;
   margin: auto;
+  background: white;
+}
 
+#signIn{
+  background: white;
+}
+#songShow{
+background: white;
+}
+#songList{
+background: white;
+}
+#profileShow{
+background: white;
+}
+#songEdit{
+background: white;
+}
+#songNew{
+  background: white;
+}
+#home{
+background: url('http://ladedaentertainment.com/images/backgrounds/concert-crowd.jpg');
 }

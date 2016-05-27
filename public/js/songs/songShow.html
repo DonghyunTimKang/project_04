@@ -1,27 +1,29 @@
-<h3>{{songShowVm.song.title}}</h3>
-<div id="authors">
-  <p>By {{songShowVm.song.authors}}</p>
-  <p>Contributed by {{songShowVm.song.contributor}}</p>
-</div>
-<div id="chords">
-  <p>Chords used {{songShowVm.song.chordsURL}}</p>
-</div>
-<div id="lyrics">
-  <p>Lyrics</p>
-  <p>{{songShowVm.song.lyrics}}</p>
-</div>
-<div id="instrument">
-  <p>Played on the {{songShowVm.song.instrument}}</p>
-</div>
-<a ui-sref="songList">Back</a>
-<a ng-show="songShowVm.authService.isLoggedIn()" ui-sref="songEdit({id:songShowVm.song._id})">Edit Song</a>
+<div id="songShow">
+  <h3>{{songShowVm.song.title}}</h3>
+  <div id="authors">
+    <p>By {{songShowVm.song.authors}}</p>
+    <p>Contributed by {{songShowVm.song.contributor}}</p>
+  </div>
+  <div id="chords">
+    <p>Chords used {{songShowVm.song.chordsURL}}</p>
+  </div>
+  <div id="lyrics">
+    <p>Lyrics</p>
+    <p>{{songShowVm.song.lyrics}}</p>
+  </div>
+  <div id="instrument">
+    <p>Played on the {{songShowVm.song.instrument}}</p>
+  </div>
+  <a ui-sref="songList">Back</a>
+  <a ng-show="songShowVm.authService.isLoggedIn()" ui-sref="songEdit({id:songShowVm.song._id})">Edit Song</a>
 
-<div>Guitar Chord Cheat Sheet
-  <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide">
-  <br/>
-  <div>
-    <div class="check-element animate-show" ng-show="checked">
-      <img ng-src="../../images/newguitarchords.png">
+  <div>Guitar Chord Cheat Sheet
+    <input type="checkbox" ng-model="checked" aria-label="Toggle ngHide">
+    <br/>
+    <div>
+      <div class="check-element animate-show" ng-show="checked">
+        <img ng-src="../../images/newguitarchords.png">
+      </div>
     </div>
   </div>
 </div>
