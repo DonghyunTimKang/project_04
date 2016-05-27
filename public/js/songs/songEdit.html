@@ -1,30 +1,38 @@
 <div id="songEdit">
   <h3>Edit Song</h3>
+  <div id="songNewAlign">
   <form id='editSong' ng-submit="songEditVm.editSong()">
     <div>
-      <label for="title">Title:</label>
+      <label for="title">Title</label>
+      </br>
       <input type="text" name="title" ng-model="songEditVm.song.title">
     </div>
     <div>
-      <label for="authors">Authors:</label>
+      <label for="authors">Authors</label>
+      </br>
       <input type="text" name="authors" ng-model="songEditVm.song.authors">
     </div>
     <div>
-      <label for="chordsURL">Chords:</label>
+      <label for="chordsURL">Chords</label>
+      </br>
       <input type="text" name="chordsURL" ng-model="songEditVm.song.chordsURL">
     </div>
     <div>
-      <label for="lyrics">Lyrics:</label>
-      <input type="text" name="lyrics" ng-model="songEditVm.song.lyrics">
+      <label for="lyrics">Lyrics</label>
+      </br>
+      <input id="lyricText" type="text" name="lyrics" ng-model="songEditVm.song.lyrics">
     </div>
     <div>
-      <label for="instrument">Instrument:</label>
+      <label for="instrument">Instrument</label>
+      </br>
       <input type="text" name="instrument" ng-model="songEditVm.song.instrument">
     </div>
     <div>
-      <label for="contributor">Contributor:</label>
+      <label for="contributor">Contributor</label>
+      </br>
       <input type="text" name="contributor" ng-model="songEditVm.newSong.contributor">
     </div>
     <input type="submit" value="Edit">
   </form>
+  </div>
 </div>
