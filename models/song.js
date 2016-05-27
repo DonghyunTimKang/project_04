@@ -5,7 +5,8 @@ var songSchema = new mongoose.Schema({
     authors: String,
     chordsURL: String,
     lyrics: String,
-    instrument: String
+    instrument: String,
+    contributor: String
 })
 
 var Song = mongoose.model('Song', songSchema);

@@ -51,6 +51,10 @@
         templateUrl: 'js/profile/profileShow.html',
         controller: 'ProfileShowController',
         controllerAs: 'ProfileShowVm'
+      })
+      .state('welcome', {
+        url: '/welcome',
+        templateUrl: 'welcome.html',
       });
 
     $urlRouterProvider.otherwise('/');

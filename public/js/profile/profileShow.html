@@ -1,11 +1,7 @@
-Profile Page
-<p>{{ProfileShowVm.user.name}}</p>
-<p>{{ProfileShowVm.user.email}}</p>
-
+<h3>Welcome {{ProfileShowVm.user.name}}</h3>
+<h4>Saved Songs</h4>
 <div ng-repeat="song in ProfileShowVm.user.songs track by $index">
-{{song.title}}
-{{song.lyrics}}
-<a ui-sref="songShow({id: song._id})">See This Song</a>
+  <a ui-sref="songShow({id: song._id})">{{song.title}} by {{song.authors}}</a>
   <hr>
 </div>
 
@@ -14,4 +10,3 @@ Profile Page
 
 
 
-<a ui-sref="songList">Back</a>
