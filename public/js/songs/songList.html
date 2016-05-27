@@ -2,8 +2,9 @@
   <div ng-controller="SongListController as vm">
     <label>Search</label>
     <div id="searchBar">
-    <input id="searchSong" align="middle" type="search" class="form-control" ng-model="vm.search" placeholder="Artist or Song Name">
+    <input id="searchSong" align="middle" type="search" ng-model="vm.search" placeholder="Artist or Song Name">
     </div>
+    <hr>
     <div ng-repeat="song in songListVm.songs | filter:vm.search">
       <a ui-sref="songShow({id: song._id})">{{song.title}} by {{song.authors}}</a>
       <a ng-show="songListVm.authService.isLoggedIn()" ng-click="songListVm.destroy(song)">Delete Song</a>
