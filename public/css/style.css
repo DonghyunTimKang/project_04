@@ -36,7 +36,13 @@ color: white;
   background: white;
 }
 #songShow{
+  max-width: 50%;
+  margin: auto;
 background: white;
+}
+#songShow{
+  margin: auto;
+  text-align: center;
 }
 #songList{
 background: white;
