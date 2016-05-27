@@ -1,10 +1,11 @@
 <div>
 <form ng-submit="songListTwoVm.songsTwo(song)">
    <input type="text" ng-model="song" name="text" />
-  <input type="submit" id="submit" value="Identify" />
+  <input type="submit" id="submit" value="Find More" />
 </form>
 <div ng-repeat="object in songListTwoVm.apiSongs">
   <p> {{object.title}}</p>
+  <p> {{object.authors[1].name}}
   <p> {{object.body_stripped}}</p>
   <a ui-sref="songShow({id: song._id})">See This Song</a>
 <hr>

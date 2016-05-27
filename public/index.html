@@ -31,15 +31,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <a ng-show="vm.authService.isLoggedIn()" ui-sref="profileShow({id:vm.authService.loggedInUser()._id})">View Profile</a>
+        <li><a ui-sref="songList">Find Song <span class="sr-only">(current)</span></a></li>
+        <li><a ui-sref="songListTwo">Find Guitar Party Song <span class="sr-only">(current)</span></a></li>
+        <li><a ng-show="vm.authService.isLoggedIn()" ui-sref="songNew">Add New Song <span class="sr-only">(current)</span></a></li>
 
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <button ng-show="vm.authService.isLoggedIn()" ui-sref="profileShow({id:vm.authService.loggedInUser()._id})">View Profile</button>
         <button ng-hide="vm.authService.isLoggedIn()" ui-sref="signin" type="button" class="btn btn-default navbar-btn navbar-right">Sign in</button>
         <button ng-show="vm.authService.isLoggedIn()" ng-click= "vm.authService.logOut()" type="button" class="btn btn-default navbar-btn navbar-right">Sign out</button>
+        <button ng-show="vm.authService.isLoggedIn()" ui-sref="profileShow({id:vm.authService.loggedInUser()._id})" class="btn btn-default navbar-btn navbar-right">View Profile</button>
       </ul>
     </div>
   </div>
